@@ -11,13 +11,15 @@ const [data, setdata] = useState([]);
         <table className="table table-xs">
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>company</th>
-              <th>location</th>
-              <th>Last Login</th>
-              <th>Favorite Color</th>
+              <th>ID</th>
+              <th>Tipo_Documento</th>
+              <th>Documento</th>
+              <th>Primer Nombre</th>
+              <th>Segundo Nombre</th>
+              <th>Primer Apellido</th>
+              <th>Segundo Apellido</th>
+              <th>Fecha Nacimiento</th>
+              <th>Sexo</th>
             </tr>
           </thead>
           <tbody>
