@@ -1,26 +1,33 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { borrar as eliminarPersona } from "../repository/delete";
 
 const List = () => {
-  
-const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(import.meta.env.VITE_API);
 
+      const responseData = response.data;
+
+      setData(responseData);
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(import.meta.env.VITE_API);
-
-        const responseData = response.data;
-
-        setData(responseData);
-        
-      } catch (error) {
-        console.error('Error en la solicitud:', error);
-      }
-    };
-
     fetchData();
   }, []);
+
+  const borrar = async (id) => {
+    const resp = await eliminarPersona(id);
+    if (resp.status == 200) {
+      fetchData();
+      alert("Borrado");
+    } else {
+      alert("Ha ocurrido un error");
+    }
+  };
 
   return (
     <div className="h-full w-full p-4">
@@ -41,10 +48,13 @@ const [data, setData] = useState([]);
             </tr>
           </thead>
           <tbody>
-          {data ? (
+            {data ? (
               data.map((item) => (
                 <tr key={item.id}>
-                  <th>borrar</th>
+                  <th>
+                    <button onClick={() => borrar(item.id)}>Borrar</button>
+                  </th>
+
                   <th>{item.id}</th>
                   <td>{item.tipoDocumento}</td>
                   <td>{item.documento}</td>
