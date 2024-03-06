@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "";
+const apiUrl = import.meta.env.VITE_API;
 
 export const borrar = async (id) => {
   try {

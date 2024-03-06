@@ -5,12 +5,10 @@ const List = () => {
   
 const [data, setData] = useState([]);
 
-  const apiUrl = 'https://ejemplo.com/api';
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(apiUrl);
+        const response = await axios.get(import.meta.env.VITE_API);
 
         const responseData = response.data;
 
@@ -30,6 +28,7 @@ const [data, setData] = useState([]);
         <table className="table table-xs">
           <thead>
             <tr>
+              <th>ACCIONES</th>
               <th>ID</th>
               <th>Tipo_Documento</th>
               <th>Documento</th>
@@ -45,6 +44,7 @@ const [data, setData] = useState([]);
           {data ? (
               data.map((item) => (
                 <tr key={item.id}>
+                  <th>borrar</th>
                   <th>{item.id}</th>
                   <td>{item.tipoDocumento}</td>
                   <td>{item.documento}</td>
