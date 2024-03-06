@@ -1,24 +1,7 @@
-import { Fragment, useState } from 'react'
-
-import './App.css'
-import { BrowserRouter, Routes,Route } from 'react-router-dom'
-import Home from './components/Home'
-import List from './components/List'
+import AppRoutes from './app/routes/AppRoutes'
 
 function App() {
-
-  return (
-    <Fragment>
-          <BrowserRouter>
-          <Routes>
-            <Route path="/*" element={<Home/>} >
-              <Route path='' element={<List/>} />
-              </Route>
-
-          </Routes>
-          </BrowserRouter>
-    </Fragment>
-  )
+  return <AppRoutes />
 }
 
 export default App
