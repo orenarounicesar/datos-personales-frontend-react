@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const List = () => {
   
-const [data, setdata] = useState([]);
+const [data, setData] = useState([]);
 
   const apiUrl = 'https://ejemplo.com/api';
 
