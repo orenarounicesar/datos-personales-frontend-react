@@ -9,7 +9,7 @@ const List = () => {
       const response = await axios.get(import.meta.env.VITE_API);
 
       const responseData = response.data;
-
+      
       setData(responseData);
     } catch (error) {
       console.error("Error en la solicitud:", error);
@@ -20,6 +20,11 @@ const List = () => {
   }, []);
 
   const borrar = async (id) => {
+    const eliminar = confirm(`¿Quieres eliminar la persona con id: ${id}?`);
+    if(!eliminar){
+      return;
+    }
+
     const resp = await eliminarPersona(id);
     if (resp.status == 200) {
       fetchData();
@@ -48,29 +53,25 @@ const List = () => {
             </tr>
           </thead>
           <tbody>
-            {data ? (
-              data.map((item) => (
-                <tr key={item.id}>
+            {
+              data.map((item, index) => (
+                <tr key={index}>
                   <th>
-                    <button onClick={() => borrar(item.id)}>Borrar</button>
+                    <button onClick={() => borrar(item._id.$oid)}>Borrar</button>
                   </th>
 
-                  <th>{item.id}</th>
-                  <td>{item.tipoDocumento}</td>
-                  <td>{item.documento}</td>
-                  <td>{item.nombre1}</td>
-                  <td>{item.nombre2}</td>
-                  <td>{item.apellido1}</td>
-                  <td>{item.apellido2}</td>
-                  <td>{item.fechaNacimiento}</td>
-                  <td>{item.sexo}</td>
+                  <th>{item._id.$oid??''}</th>
+                  <td>{item.tipoDocumento??''}</td>
+                  <td>{item.documento??''}</td>
+                  <td>{item.nombre1??''}</td>
+                  <td>{item.nombre2??''}</td>
+                  <td>{item.apellido1??''}</td>
+                  <td>{item.apellido2??''}</td>
+                  <td>{item.fechaNacimiento?.$date??''}</td>
+                  <td>{item.sexo??'Sin especificar'}</td>
                 </tr>
               ))
-            ) : (
-              <tr>
-                <td colSpan="10">Cargando...</td>
-              </tr>
-            )}
+            }
           </tbody>
         </table>
       </div>
