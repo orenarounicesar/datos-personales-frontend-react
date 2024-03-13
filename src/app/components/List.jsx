@@ -35,7 +35,6 @@ const List = () => {
         <table className="table table-xs">
           <thead>
             <tr>
-              <th>ACCIONES</th>
               <th>ID</th>
               <th>Tipo_Documento</th>
               <th>Documento</th>
@@ -45,16 +44,13 @@ const List = () => {
               <th>Segundo Apellido</th>
               <th>Fecha Nacimiento</th>
               <th>Sexo</th>
+              <th>ACCIONES</th>
             </tr>
           </thead>
           <tbody>
             {data ? (
               data.map((item) => (
                 <tr key={item.id}>
-                  <th>
-                    <button onClick={() => borrar(item.id)}>Borrar</button>
-                  </th>
-
                   <th>{item.id}</th>
                   <td>{item.tipoDocumento}</td>
                   <td>{item.documento}</td>
@@ -64,6 +60,9 @@ const List = () => {
                   <td>{item.apellido2}</td>
                   <td>{item.fechaNacimiento}</td>
                   <td>{item.sexo}</td>
+                  <th>
+                    <button onClick={() => borrar(item.id)} className="btn btn-xs btn-outline btn-error">Eliminar</button>
+                  </th>
                 </tr>
               ))
             ) : (
