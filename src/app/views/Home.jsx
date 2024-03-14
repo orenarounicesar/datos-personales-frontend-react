@@ -1,8 +1,14 @@
-import React from 'react'
-import List from '../components/List'
+import React from "react";
+import List from "../components/List";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-  return <List />
-}
+  return (
+    <>
+      <Navbar />
+      <List />
+    </>
+  );
+};
 
-export default Home
+export default Home;
