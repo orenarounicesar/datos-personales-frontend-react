@@ -6,7 +6,7 @@ const List = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(import.meta.env.VITE_API);
+      const response = await axios.get(import.meta.env.VITE_API_PRUEBA);
 
       const responseData = response.data;
       
@@ -56,10 +56,6 @@ const List = () => {
             {
               data.map((item, index) => (
                 <tr key={index}>
-                  <th>
-                    <button onClick={() => borrar(item._id.$oid)}>Borrar</button>
-                  </th>
-
                   <th>{item._id.$oid??''}</th>
                   <td>{item.tipoDocumento??''}</td>
                   <td>{item.documento??''}</td>
@@ -69,6 +65,9 @@ const List = () => {
                   <td>{item.apellido2??''}</td>
                   <td>{item.fechaNacimiento?.$date??''}</td>
                   <td>{item.sexo??'Sin especificar'}</td>
+                  <th>
+                    <button onClick={() => borrar(item._id.$oid)}>Borrar</button>
+                  </th>
                 </tr>
               ))
             }
