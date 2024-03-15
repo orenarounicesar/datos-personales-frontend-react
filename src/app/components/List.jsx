@@ -6,7 +6,7 @@ const List = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(import.meta.env.VITE_API);
+      const response = await axios.get(import.meta.env.VITE_API_PRUEBA);
 
       const responseData = response.data;
 
@@ -42,7 +42,7 @@ const List = () => {
           <div className="overflow-auto h-full">
             <table className="table table-xs">
               <thead>
-                <tr>
+                <tr className="center">
                   <th>ID</th>
                   <th>Tipo_Documento</th>
                   <th>Documento</th>
@@ -58,7 +58,7 @@ const List = () => {
               <tbody>
                 {data.map((item, index) => (
                   <tr key={index}>
-                    <th>{item._id.$oid ?? ""}</th>
+                    <th>{item._id?.$oid ?? ""}</th>
                     <td>{item.tipoDocumento ?? ""}</td>
                     <td>{item.documento ?? ""}</td>
                     <td>{item.nombre1 ?? ""}</td>
@@ -68,7 +68,8 @@ const List = () => {
                     <td>{item.fechaNacimiento?.$date ?? ""}</td>
                     <td>{item.sexo ?? "Sin especificar"}</td>
                     <th>
-                      <button className="btn btn-outline btn-error" onClick={() => borrar(item._id.$oid)}>
+                    {/* <button className="btn btn-outline btn-error" onClick={() => borrar(item._id?.$oid)}> */}
+                      <button className="btn btn-outline btn-error" onClick={() => borrar(item.id)}>
                         Borrar
                       </button>
                     </th>
