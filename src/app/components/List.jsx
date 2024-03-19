@@ -58,7 +58,7 @@ const List = () => {
               <tbody>
                 {data.map((item, index) => (
                   <tr key={index}>
-                    <th>{item._id.$oid ?? ""}</th>
+                    <th>{item._id?.$oid ?? ""}</th>
                     <td>{item.tipoDocumento ?? ""}</td>
                     <td>{item.documento ?? ""}</td>
                     <td>{item.nombre1 ?? ""}</td>
@@ -68,7 +68,7 @@ const List = () => {
                     <td>{item.fechaNacimiento?.$date ?? ""}</td>
                     <td>{item.sexo ?? "Sin especificar"}</td>
                     <th>
-                      <button className="btn btn-outline btn-error" onClick={() => borrar(item._id.$oid)}>
+                      <button className="btn btn-outline btn-error" onClick={() => borrar(item._id?.$oid)}>
                         Borrar
                       </button>
                     </th>
