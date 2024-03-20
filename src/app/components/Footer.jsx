@@ -3,9 +3,9 @@ const Footer = () => {
   const responsables = [
     { nombre: "Juan Pablo", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/feature/JuanPablo" },
     { nombre: "Carlos Arroyo", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/Feature/Carlos-Arroyo" },
-    { nombre: "Iutria", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/feature/iutria" },
+    { nombre: "Ivan Utria", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/feature/iutria" },
     { nombre: "Ivan Castro", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/feature/ivan_castro" },
-    { nombre: "Jailer", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/fectures-jailer" }
+    { nombre: "Jailer Vega Meza", url: "https://github.com/orenarounicesar/datos-personales-frontend-react/tree/fectures-jailer" }
   ];
 
   return (
