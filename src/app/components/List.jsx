@@ -68,7 +68,8 @@ const List = () => {
                     <td>{item.fechaNacimiento?.$date ?? ""}</td>
                     <td>{item.sexo ?? "Sin especificar"}</td>
                     <th>
-                      <button className="btn btn-outline btn-error" onClick={() => borrar(item._id?.$oid)}>
+                    <button className="btn btn-outline btn-error" onClick={() => borrar(item._id?.$oid)}> 
+                      {/*<button className="btn btn-outline btn-error" onClick={() => borrar(item.id)}> */}
                         Borrar
                       </button>
                     </th>
