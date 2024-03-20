@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
       <div className="navbar bg-base-100 border">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Home</a>
+          <p className="btn btn-ghost text-xl">Home</p>
+          <Link to={'http://localhost/add_page'} className="btn btn-ghost text-xl">Nuevo usuario</Link>
+          <Link to={'http://localhost/actualizar_page'} className="btn btn-ghost text-xl">Editar usuario</Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
