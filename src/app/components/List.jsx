@@ -42,7 +42,7 @@ const List = () => {
           <div className="overflow-auto h-full">
             <table className="table table-xs">
               <thead>
-                <tr>
+                <tr className="center">
                   <th>ID</th>
                   <th>Tipo_Documento</th>
                   <th>Documento</th>
